@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors({ origin: "*", credentials: true, optionSuccessStatus: 200 }));
 
 // Serve static images
-app.use('/images', express.static('public/images'));
+// app.use('/images', express.static('public/images'));
 
 // Connect to DB
 initializeDataBase();
@@ -40,6 +40,7 @@ app.get('/events', async (req, res) => {
     try {
         const allEvents = await Event.find({});
         res.status(200).json(allEvents);
+        console.log(allEvents)
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to fetch events' });
