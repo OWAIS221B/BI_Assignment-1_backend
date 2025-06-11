@@ -9,8 +9,6 @@ const Event = require('./models/event.models');
 app.use(express.json());
 app.use(cors({ origin: "*", credentials: true, optionSuccessStatus: 200 }));
 
-// Serve static images
-// app.use('/images', express.static('public/images'));
 
 // Connect to DB
 initializeDataBase();
