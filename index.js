@@ -34,7 +34,7 @@ app.post('/events', async (req, res) => {
     }
 });
 
-app.get('/events', async (req, res) => {
+app.get('/events/all', async (req, res) => {
     try {
         const allEvents = await Event.find({});
         res.status(200).json(allEvents);
@@ -45,7 +45,7 @@ app.get('/events', async (req, res) => {
     }
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
 });
